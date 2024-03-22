@@ -56,4 +56,12 @@ class AuthController extends Controller
 
 
     }
+
+    public function checkToken( Request $request )
+    {
+        $user = $request->user();  
+        return response()->json([
+            "user" => new UseryResource($user),
+        ]);
+    }
 }
